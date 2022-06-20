@@ -182,8 +182,8 @@
               </template>
             </el-dropdown>
             <div>
-              <el-icon style="margin-right: 10px; font-size: 18px"><expand /></el-icon>
-              <el-icon style="font-size: 18px"><QuestionFilled /></el-icon>
+              <el-icon style="margin-right: 25px; font-size: 18px"><expand /></el-icon>
+              <el-icon style="margin-right: 10px; font-size: 18px"><QuestionFilled /></el-icon>
             </div>
           </div>
           <p style="text-align: left; font-size: 15px; color: grey; padding-top: 7px">Quick Access</p>
