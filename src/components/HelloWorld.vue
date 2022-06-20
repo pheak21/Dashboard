@@ -140,6 +140,7 @@
                  <el-progress :percentage="50" style="width: 160px; padding-top: 30px"/>
                 </div>
               </el-menu-item>
+              <span style="font-size: 12px; color: #8A8A8A;">8.5 GB of 15 GB useg</span>
               <el-button>Buy Storage</el-button>
             </el-menu>
           </el-col>
@@ -227,9 +228,9 @@
               v-for="(o, index) in 4"
               :key="o"
               :span="4"
-              :offset="index > 0 ? 1 : 0"
+              :offset="index > 0 ? 2 : 0"
             >
-              <el-card :body-style="{ padding: '5px' }" style="width: 250px">
+              <el-card :body-style="{ padding: '5px' }" style="width: 280px">
                 <img
                   src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
                   class="image"
@@ -260,55 +261,23 @@
           </div>
           <div>
             <el-row>
-              <el-button
+              <el-button style="width: 150px; padding: 10px"
                 ><el-icon class="el-icon--right" style="font-size: 18px"
                   ><Folder /></el-icon
                 >Default</el-button
               >
-              <el-button
+              <el-button style="width: 150px; padding: 10px"
                 ><el-icon class="el-icon--right" style="font-size: 18px"
                   ><Folder /></el-icon
                 >Default</el-button
               >
-              <el-button
+              <el-button style="width: 150px; padding: 10px"
                 ><el-icon class="el-icon--right" style="font-size: 18px"
                   ><Folder /></el-icon
                 >Default</el-button
               >
             </el-row>
           </div>
-          <!-- <div class="demo-progress" style="margin-top: 20px">
-            <el-progress
-              :text-inside="true"
-              :stroke-width="26"
-              :percentage="70"
-            />
-            <el-progress
-              :text-inside="true"
-              :stroke-width="24"
-              :percentage="100"
-              status="success"
-            />
-            <el-progress
-              :text-inside="true"
-              :stroke-width="22"
-              :percentage="80"
-              status="warning"
-            />
-            <el-progress
-              :text-inside="true"
-              :stroke-width="20"
-              :percentage="50"
-              status="exception"
-            />
-          </div> -->
-          <!-- <div class="demo-progress">
-            <el-progress type="circle" :percentage="0" />
-            <el-progress type="circle" :percentage="25" />
-            <el-progress type="circle" :percentage="100" status="success" />
-            <el-progress type="circle" :percentage="70" status="warning" />
-            <el-progress type="circle" :percentage="50" status="exception" />
-          </div> -->
         </el-main>
       </el-container>
     </el-container>
@@ -690,6 +659,7 @@ p {
 .image {
   width: 100%;
   display: block;
+  height: 150px;
 }
 .demo-progress .el-progress--line {
   margin-bottom: 20px;
