@@ -47,7 +47,7 @@
               @close="handleClose"
             >
               <div class="flex flex-wrap items-center">
-                <el-dropdown>
+                <el-dropdown trigger="click">
                   <el-button
                     type="white"
                     style="
@@ -141,27 +141,66 @@
               @change="handleChange"
             />
           </div> -->
-          <div style="width: 115px;">
+          <!-- <div style="width: 115px; display: flex">
             <el-menu style="border: none">
               <el-sub-menu index="1">
                 <template #title>
                   <span>My Drive</span>
                 </template>
-                <!-- <el-menu-item-group title="Group One"> -->
+                <el-menu-item-group title="Group One">
                   <el-menu-item index="1-1">item one</el-menu-item>
                   <el-menu-item index="1-2">item one</el-menu-item>
-                <!-- </el-menu-item-group> -->
-                <!-- <el-menu-item-group title="Group Two"> -->
+                </el-menu-item-group>
+                <el-menu-item-group title="Group Two">
                   <el-menu-item index="1-3">item three</el-menu-item>
-                <!-- </el-menu-item-group> -->
+                </el-menu-item-group>
                 <el-sub-menu index="1-4">
                   <template #title>item four</template>
                   <el-menu-item index="1-4-1">item one</el-menu-item>
                 </el-sub-menu>
               </el-sub-menu>
             </el-menu>
+          </div> -->
+          <div style="width: 115px; display: flex">
+            <el-dropdown trigger="click">
+              <span class="el-dropdown-link">
+                My Drive
+                <el-icon class="el-icon--right"><caret-bottom /></el-icon>
+              </span>
+              <template #dropdown>
+                <el-dropdown-menu>
+                  <el-dropdown-item>Action 1</el-dropdown-item>
+                  <el-dropdown-item>Action 2</el-dropdown-item>
+                  <el-dropdown-item>Action 3</el-dropdown-item>
+                  <el-dropdown-item>
+                    <el-dropdown split-button type="white" @click="handleClick">
+                      Dropdown List
+                      <template #dropdown>
+                        <el-dropdown-menu>
+                          <el-dropdown-item>Action 1</el-dropdown-item>
+                          <el-dropdown-item>Action 2</el-dropdown-item>
+                        </el-dropdown-menu>
+                      </template>
+                    </el-dropdown>
+                  </el-dropdown-item>
+                  <el-dropdown-item>
+                    <el-dropdown split-button type="white" @click="handleClick">
+                      Dropdown List
+                      <template #dropdown>
+                        <el-dropdown-menu>
+                          <el-dropdown-item>Action 1</el-dropdown-item>
+                          <el-dropdown-item>Action 2</el-dropdown-item>
+                        </el-dropdown-menu>
+                      </template>
+                    </el-dropdown>
+                  </el-dropdown-item>
+                </el-dropdown-menu>
+              </template>
+            </el-dropdown>
           </div>
-          <el-row style="margin-top: 20px; display:flex;justify-content: start">
+          <el-row
+            style="margin-top: 20px; display: flex; justify-content: start"
+          >
             <el-col
               v-for="(o, index) in 4"
               :key="o"
@@ -173,7 +212,7 @@
                   src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
                   class="image"
                 />
-                <div style="padding: 15px;">
+                <div style="padding: 15px">
                   <span>Yummy hamburger</span>
                   <div class="bottom">
                     <time class="time">{{ currentDate }}</time>
