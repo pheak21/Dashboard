@@ -134,26 +134,46 @@
           <!-- <el-select-v2 v-model="value" :options="options"
             placeholder="Please select" style="width: 240px"
             multiple /> -->
-          <div class="example-block" style="display: flex">
+          <!-- <div class="example-block" style="display: flex">
             <el-cascader
               v-model="value"
               :options="options"
               @change="handleChange"
             />
+          </div> -->
+          <div style="width: 115px;">
+            <el-menu style="border: none">
+              <el-sub-menu index="1">
+                <template #title>
+                  <span>My Drive</span>
+                </template>
+                <!-- <el-menu-item-group title="Group One"> -->
+                  <el-menu-item index="1-1">item one</el-menu-item>
+                  <el-menu-item index="1-2">item one</el-menu-item>
+                <!-- </el-menu-item-group> -->
+                <!-- <el-menu-item-group title="Group Two"> -->
+                  <el-menu-item index="1-3">item three</el-menu-item>
+                <!-- </el-menu-item-group> -->
+                <el-sub-menu index="1-4">
+                  <template #title>item four</template>
+                  <el-menu-item index="1-4-1">item one</el-menu-item>
+                </el-sub-menu>
+              </el-sub-menu>
+            </el-menu>
           </div>
-          <el-row style="margin-top: 20px">
+          <el-row style="margin-top: 20px; display:flex;justify-content: start">
             <el-col
-              v-for="(o, index) in 3"
+              v-for="(o, index) in 4"
               :key="o"
-              :span="5"
-              :offset="index > 0 ? 3 : 0"
+              :span="4"
+              :offset="index > 0 ? 2 : 0"
             >
               <el-card :body-style="{ padding: '5px' }">
                 <img
                   src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
                   class="image"
                 />
-                <div style="padding: 15px; margin: 5px">
+                <div style="padding: 15px;">
                   <span>Yummy hamburger</span>
                   <div class="bottom">
                     <time class="time">{{ currentDate }}</time>
@@ -561,10 +581,10 @@ p {
 }
 
 .bottom {
-  margin-top: 10px;
-  line-height: 11px;
+  margin-top: 12px;
+  line-height: 10px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
 
