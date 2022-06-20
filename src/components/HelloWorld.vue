@@ -259,19 +259,19 @@
             </p>
           </div>
           <div>
-            <el-row>
-              <el-button
-                ><el-icon class="el-icon--right" style="font-size: 18px"
+            <el-row style="display: flex; justify-content: flex-start">
+              <el-button style="width: 150px;"
+                ><el-icon class="el-icon--right" style="font-size: 18px;"
                   ><Folder /></el-icon
                 >Default</el-button
               >
-              <el-button
-                ><el-icon class="el-icon--right" style="font-size: 18px"
+              <el-button style="width: 150px;"
+                ><el-icon class="el-icon--right" style="font-size: 18px;"
                   ><Folder /></el-icon
                 >Default</el-button
               >
-              <el-button
-                ><el-icon class="el-icon--right" style="font-size: 18px"
+              <el-button style="width: 150px;"
+                ><el-icon class="el-icon--right" style="font-size: 18px;"
                   ><Folder /></el-icon
                 >Default</el-button
               >
