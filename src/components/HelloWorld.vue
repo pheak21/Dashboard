@@ -100,8 +100,8 @@
               </div>
               <el-sub-menu index="1">
                 <template #title>
-                  <el-icon><location /></el-icon>
-                  <span>Navigator One</span>
+                  <el-icon><collection /></el-icon>
+                  <span>My Drive</span>
                 </template>
                 <el-menu-item-group title="Group One">
                   <el-menu-item index="1-1">item one</el-menu-item>
@@ -116,16 +116,20 @@
                 </el-sub-menu>
               </el-sub-menu>
               <el-menu-item index="2">
-                <el-icon><icon-menu /></el-icon>
-                <span>Navigator Two</span>
+                <el-icon><stamp /></el-icon>
+                <span>Share with me</span>
               </el-menu-item>
-              <el-menu-item index="3" disabled>
-                <el-icon><document /></el-icon>
-                <span>Navigator Three</span>
+              <el-menu-item index="3">
+                <el-icon><clock /></el-icon>
+                <span>Recent</span>
               </el-menu-item>
               <el-menu-item index="4">
-                <el-icon><setting /></el-icon>
-                <span>Navigator Four</span>
+                <el-icon><star /></el-icon>
+                <span>Starred</span>
+              </el-menu-item>
+              <el-menu-item index="5">
+                <el-icon><delete /></el-icon>
+                <span>Trash</span>
               </el-menu-item>
             </el-menu>
           </el-col>
@@ -141,29 +145,9 @@
               @change="handleChange"
             />
           </div> -->
-          <!-- <div style="width: 115px; display: flex">
-            <el-menu style="border: none">
-              <el-sub-menu index="1">
-                <template #title>
-                  <span>My Drive</span>
-                </template>
-                <el-menu-item-group title="Group One">
-                  <el-menu-item index="1-1">item one</el-menu-item>
-                  <el-menu-item index="1-2">item one</el-menu-item>
-                </el-menu-item-group>
-                <el-menu-item-group title="Group Two">
-                  <el-menu-item index="1-3">item three</el-menu-item>
-                </el-menu-item-group>
-                <el-sub-menu index="1-4">
-                  <template #title>item four</template>
-                  <el-menu-item index="1-4-1">item one</el-menu-item>
-                </el-sub-menu>
-              </el-sub-menu>
-            </el-menu>
-          </div> -->
-          <div style="width: 115px; display: flex">
+          <div style="height: 30px; display: flex; border-bottom: 1px solid #E3E3E3; justify-content: space-between;">
             <el-dropdown trigger="click">
-              <span class="el-dropdown-link">
+              <span class="el-dropdown-link" style="cursor: pointer; font-size: 18px">
                 My Drive
                 <el-icon class="el-icon--right"><caret-bottom /></el-icon>
               </span>
@@ -197,7 +181,12 @@
                 </el-dropdown-menu>
               </template>
             </el-dropdown>
+            <div>
+              <el-icon style="margin-right: 10px; font-size: 18px"><expand /></el-icon>
+              <el-icon style="font-size: 18px"><QuestionFilled /></el-icon>
+            </div>
           </div>
+          <p style="text-align: left; font-size: 15px; color: grey; padding-top: 7px">Quick Access</p>
           <el-row
             style="margin-top: 20px; display: flex; justify-content: start"
           >
@@ -205,14 +194,14 @@
               v-for="(o, index) in 4"
               :key="o"
               :span="4"
-              :offset="index > 0 ? 2 : 0"
+              :offset="index > 0 ? 1 : 0"
             >
-              <el-card :body-style="{ padding: '5px' }">
+              <el-card :body-style="{ padding: '5px' }" style="width: 250px">
                 <img
                   src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
                   class="image"
                 />
-                <div style="padding: 15px">
+                <div style="padding: 10px">
                   <span>Yummy hamburger</span>
                   <div class="bottom">
                     <time class="time">{{ currentDate }}</time>
@@ -222,7 +211,18 @@
               </el-card>
             </el-col>
           </el-row>
-          <div class="demo-progress" style="margin-top: 20px">
+          <div style="padding: 25px 0 10px 0; display: flex; justify-content: space-between;">
+            <p style="text-align: pleft; font-size: 15px; color: grey">Folder</p>
+            <p style="font-size: 15px; color: grey">Name<el-icon style="margin-left: 10px;"><top /></el-icon></p>
+          </div>
+          <div>
+            <el-row>
+              <el-button><el-icon class="el-icon--right" style="font-size: 18px;"><Folder /></el-icon>Default</el-button>
+              <el-button><el-icon class="el-icon--right" style="font-size: 18px;"><Folder /></el-icon>Default</el-button>
+              <el-button><el-icon class="el-icon--right" style="font-size: 18px;"><Folder /></el-icon>Default</el-button>
+            </el-row>
+          </div>
+          <!-- <div class="demo-progress" style="margin-top: 20px">
             <el-progress
               :text-inside="true"
               :stroke-width="26"
@@ -246,7 +246,7 @@
               :percentage="50"
               status="exception"
             />
-          </div>
+          </div> -->
           <!-- <div class="demo-progress">
             <el-progress type="circle" :percentage="0" />
             <el-progress type="circle" :percentage="25" />
