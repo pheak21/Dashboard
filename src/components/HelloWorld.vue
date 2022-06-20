@@ -127,10 +127,20 @@
                 <el-icon><star /></el-icon>
                 <span>Starred</span>
               </el-menu-item>
-              <el-menu-item index="5">
+              <el-menu-item index="5" style="border-bottom: 1px solid #e3e3e3">
                 <el-icon><delete /></el-icon>
                 <span>Trash</span>
               </el-menu-item>
+              <el-menu-item index="6">
+                <el-icon><cloudy /></el-icon>
+                <span>Storage</span>
+              </el-menu-item>
+              <el-menu-item index="7">
+                <div class="demo-progress" >
+                 <el-progress :percentage="50" style="width: 160px; padding-top: 30px"/>
+                </div>
+              </el-menu-item>
+              <el-button>Buy Storage</el-button>
             </el-menu>
           </el-col>
         </el-aside>
@@ -145,9 +155,19 @@
               @change="handleChange"
             />
           </div> -->
-          <div style="height: 30px; display: flex; border-bottom: 1px solid #E3E3E3; justify-content: space-between;">
+          <div
+            style="
+              height: 30px;
+              display: flex;
+              border-bottom: 1px solid #e3e3e3;
+              justify-content: space-between;
+            "
+          >
             <el-dropdown trigger="click">
-              <span class="el-dropdown-link" style="cursor: pointer; font-size: 18px">
+              <span
+                class="el-dropdown-link"
+                style="cursor: pointer; font-size: 18px"
+              >
                 My Drive
                 <el-icon class="el-icon--right"><caret-bottom /></el-icon>
               </span>
@@ -182,11 +202,24 @@
               </template>
             </el-dropdown>
             <div>
-              <el-icon style="margin-right: 25px; font-size: 18px"><expand /></el-icon>
-              <el-icon style="margin-right: 10px; font-size: 18px"><QuestionFilled /></el-icon>
+              <el-icon style="margin-right: 25px; font-size: 18px"
+                ><expand
+              /></el-icon>
+              <el-icon style="margin-right: 10px; font-size: 18px"
+                ><QuestionFilled
+              /></el-icon>
             </div>
           </div>
-          <p style="text-align: left; font-size: 15px; color: grey; padding-top: 7px">Quick Access</p>
+          <p
+            style="
+              text-align: left;
+              font-size: 15px;
+              color: grey;
+              padding-top: 7px;
+            "
+          >
+            Quick Access
+          </p>
           <el-row
             style="margin-top: 20px; display: flex; justify-content: start"
           >
@@ -211,15 +244,37 @@
               </el-card>
             </el-col>
           </el-row>
-          <div style="padding: 25px 0 10px 0; display: flex; justify-content: space-between;">
-            <p style="text-align: pleft; font-size: 15px; color: grey">Folder</p>
-            <p style="font-size: 15px; color: grey">Name<el-icon style="margin-left: 10px;"><top /></el-icon></p>
+          <div
+            style="
+              padding: 25px 0 10px 0;
+              display: flex;
+              justify-content: space-between;
+            "
+          >
+            <p style="text-align: pleft; font-size: 15px; color: grey">
+              Folder
+            </p>
+            <p style="font-size: 15px; color: grey">
+              Name<el-icon style="margin-left: 10px"><top /></el-icon>
+            </p>
           </div>
           <div>
             <el-row>
-              <el-button><el-icon class="el-icon--right" style="font-size: 18px;"><Folder /></el-icon>Default</el-button>
-              <el-button><el-icon class="el-icon--right" style="font-size: 18px;"><Folder /></el-icon>Default</el-button>
-              <el-button><el-icon class="el-icon--right" style="font-size: 18px;"><Folder /></el-icon>Default</el-button>
+              <el-button
+                ><el-icon class="el-icon--right" style="font-size: 18px"
+                  ><Folder /></el-icon
+                >Default</el-button
+              >
+              <el-button
+                ><el-icon class="el-icon--right" style="font-size: 18px"
+                  ><Folder /></el-icon
+                >Default</el-button
+              >
+              <el-button
+                ><el-icon class="el-icon--right" style="font-size: 18px"
+                  ><Folder /></el-icon
+                >Default</el-button
+              >
             </el-row>
           </div>
           <!-- <div class="demo-progress" style="margin-top: 20px">
@@ -635,5 +690,8 @@ p {
 .image {
   width: 100%;
   display: block;
+}
+.demo-progress .el-progress--line {
+  margin-bottom: 20px;
 }
 </style>
