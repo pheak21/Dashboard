@@ -61,16 +61,28 @@
                   </el-button>
                   <template #dropdown>
                     <el-dropdown-menu>
-                      <el-dropdown-item>Action 1</el-dropdown-item>
-                      <el-dropdown-item>Action 2</el-dropdown-item>
-                      <el-dropdown-item>Action 3</el-dropdown-item>
+                      <el-dropdown-item
+                        style="border-bottom: 1px solid #e3e3e3"
+                      >
+                        <el-icon><Folder /></el-icon>Folder</el-dropdown-item
+                      >
+                      <el-dropdown-item>
+                        <el-icon><DocumentAdd /></el-icon>File
+                        upload</el-dropdown-item
+                      >
+                      <el-dropdown-item
+                        style="border-bottom: 1px solid #e3e3e3"
+                      >
+                        <el-icon><FolderAdd /></el-icon>Folder
+                        upload</el-dropdown-item
+                      >
                       <el-dropdown-item>
                         <el-dropdown
                           split-button
                           type="white"
                           @click="handleClick"
                         >
-                          Dropdown List
+                          Google Doc
                           <template #dropdown>
                             <el-dropdown-menu>
                               <el-dropdown-item>Action 1</el-dropdown-item>
@@ -85,7 +97,22 @@
                           type="white"
                           @click="handleClick"
                         >
-                          Dropdown List
+                          Google Slides
+                          <template #dropdown>
+                            <el-dropdown-menu>
+                              <el-dropdown-item>Action 1</el-dropdown-item>
+                              <el-dropdown-item>Action 2</el-dropdown-item>
+                            </el-dropdown-menu>
+                          </template>
+                        </el-dropdown>
+                      </el-dropdown-item>
+                      <el-dropdown-item>
+                        <el-dropdown
+                          split-button
+                          type="white"
+                          @click="handleClick"
+                        >
+                          More
                           <template #dropdown>
                             <el-dropdown-menu>
                               <el-dropdown-item>Action 1</el-dropdown-item>
@@ -136,11 +163,16 @@
                 <span>Storage</span>
               </el-menu-item>
               <el-menu-item index="7">
-                <div class="demo-progress" >
-                 <el-progress :percentage="50" style="width: 160px; padding-top: 30px"/>
+                <div class="demo-progress">
+                  <el-progress
+                    :percentage="50"
+                    style="width: 160px; padding-top: 30px"
+                  />
                 </div>
               </el-menu-item>
-              <span style="font-size: 12px; color: #8A8A8A;">8.5 GB of 15 GB useg</span>
+              <span style="font-size: 12px; color: #8a8a8a"
+                >8.5 GB of 15 GB useg</span
+              >
               <el-button>Buy Storage</el-button>
             </el-menu>
           </el-col>
@@ -174,12 +206,20 @@
               </span>
               <template #dropdown>
                 <el-dropdown-menu>
-                  <el-dropdown-item>Action 1</el-dropdown-item>
-                  <el-dropdown-item>Action 2</el-dropdown-item>
-                  <el-dropdown-item>Action 3</el-dropdown-item>
+                  <el-dropdown-item style="border-bottom: 1px solid #e3e3e3">
+                    <el-icon><Folder /></el-icon>Folder</el-dropdown-item
+                  >
+                  <el-dropdown-item>
+                    <el-icon><DocumentAdd /></el-icon>File
+                    upload</el-dropdown-item
+                  >
+                  <el-dropdown-item style="border-bottom: 1px solid #e3e3e3">
+                    <el-icon><FolderAdd /></el-icon>Folder
+                    upload</el-dropdown-item
+                  >
                   <el-dropdown-item>
                     <el-dropdown split-button type="white" @click="handleClick">
-                      Dropdown List
+                      Google Doc
                       <template #dropdown>
                         <el-dropdown-menu>
                           <el-dropdown-item>Action 1</el-dropdown-item>
@@ -190,7 +230,7 @@
                   </el-dropdown-item>
                   <el-dropdown-item>
                     <el-dropdown split-button type="white" @click="handleClick">
-                      Dropdown List
+                      Google Slides
                       <template #dropdown>
                         <el-dropdown-menu>
                           <el-dropdown-item>Action 1</el-dropdown-item>
@@ -221,9 +261,7 @@
           >
             Quick Access
           </p>
-          <el-row
-            style="margin-top: 20px; display: flex; justify-content: start"
-          >
+          <el-row style="margin-top: 20px; display: flex">
             <el-col
               v-for="(o, index) in 4"
               :key="o"
