@@ -1,46 +1,40 @@
 <template>
-  <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
-  <!-- <HelloWorld :msg="msg" :text="text" theme="sale">
-    <template v-slot:links>
-      <a href="#">Sign in</a>
-    </template>
-    <p>"Welcome to Your Vue.js + TypeScript App,
-      continue!!"</p>
-  </HelloWorld> -->
-  <!-- <div id="nav">
-    <router-link :to="{ name: 'login'}">Sign In</router-link>
-    <router-link :to="{ name: 'signup'}">Sign Up</router-link>
-  </div> -->
-  <!-- <Login/> -->
-  <!-- <Accsignup/> -->
-  <router-view/>
-  <!-- <div class="grid grid-cols-3 gap-2">
-    <div class="">01</div>
-    <div class="">02</div>
-    <div class="">03</div>
-    <div class="col-span-2">03</div>
-    <div class="">03</div>
-    <div class="">03</div>
-    <div class="col-span-2">03</div>
-    <div class="">03</div>
-    <div class="">03</div>
-  </div> -->
+  <!-- <section class="h-full gradient-form bg-gray-200 md:h-screen">
+    <div class="container py-12 px-6 h-full">
+      <div
+        class="
+          flex
+          justify-center
+          items-center
+          flex-wrap
+          h-full
+          g-6
+          text-gray-800
+        "
+      >
+        <div class="xl:w-10/12">
+          <div class="block bg-white shadow-lg rounded-lg">
+            <div class="lg:flex lg:flex-wrap g-0">
+              <HomeViews/>
+              <div class="lg:w-6/12 px-4 md:px-0">
+                <router-view/>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+  <HomeViews/>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
-// import HelloWorld from './components/HelloWorld.vue';
-// import Login from './components/Login.vue';
-// import Accsignup from './components/Accsignup.vue';
+<script lang="ts" setup>
+/* eslint-disable */
+import {RouterView, useRoute} from 'vue-router';
+import HomeViews from '../src/views/HomeView.vue';
 
-export default defineComponent({
-  name: "App",
-  components: {
-    // HelloWorld
-    // Login,
-    // Accsignup,
-  },
-});
+const route = useRoute();
+
 </script>
 
 <style>
@@ -69,4 +63,8 @@ export default defineComponent({
 body {
   margin: 0px;
 }
+/* div {
+  border: 1px solid black;
+  border-radius: 10px;
+} */
 </style>
