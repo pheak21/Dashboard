@@ -18,11 +18,20 @@
       >
         <p class="mb-4">Please your new password</p>
         <div class="mb-4">
+          <el-form-item prop="email">
+            <el-input
+              v-model="ruleForm2.email"
+              placeholder="Please input email"
+              autocomplete="off"
+            />
+          </el-form-item>
+        </div>
+        <div class="mb-4">
           <el-form-item prop="pass">
             <el-input
               v-model="ruleForm2.pass"
               type="password"
-              placeholder="inpuut new password"
+              placeholder="Input new password"
               autocomplete="off"
               show-password
             />
@@ -33,7 +42,7 @@
             <el-input
               v-model="ruleForm2.checkPass"
               type="password"
-              placeholder="input password again"
+              placeholder="Input password again"
               autocomplete="off"
               show-password
             />
@@ -64,10 +73,21 @@
 /* eslint-disable */
 import { reactive, ref } from "vue";
 import type { FormInstance } from "element-plus";
+import { ElMessage, ElMessageBox } from "element-plus";
 
 const ruleFormRef2 = ref<FormInstance>();
 
 const validatePass3 = (rule: any, value: any, callback: any) => {
+  if (value === "") {
+    callback(new Error("Please input the email"));
+  } 
+  else if (value !== "admin") {
+    callback(new Error("Email is not correct!"));
+  } else {
+    callback();
+  }
+};
+const validatePass4 = (rule: any, value: any, callback: any) => {
   if (value === "") {
     callback(new Error("Please input the password"));
   } else {
@@ -78,7 +98,7 @@ const validatePass3 = (rule: any, value: any, callback: any) => {
     callback();
   }
 };
-const validatePass4 = (rule: any, value: any, callback: any) => {
+const validatePass5 = (rule: any, value: any, callback: any) => {
   if (value === "") {
     callback(new Error("Please input the password again"));
   } else if (value !== ruleForm2.pass) {
@@ -89,21 +109,25 @@ const validatePass4 = (rule: any, value: any, callback: any) => {
 };
 
 const ruleForm2 = reactive({
+  email: "",
   pass: "",
   checkPass: "",
 });
 
 const rules = reactive({
-  pass: [{ validator: validatePass3, trigger: "blur" }],
-  checkPass: [{ validator: validatePass4, trigger: "blur" }],
+  email: [{ validator: validatePass3, trigger: "blur" }],
+  pass: [{ validator: validatePass4, trigger: "blur" }],
+  checkPass: [{ validator: validatePass5, trigger: "blur" }],
 });
 
 const submitForm = (formEl: FormInstance | undefined) => {
   if (!formEl) return;
   formEl.validate((valid) => {
     if (valid) {
+      Success();
       console.log("submit!");
     } else {
+      notSuccess();
       console.log("error submit!");
       return false;
     }
@@ -113,6 +137,29 @@ const submitForm = (formEl: FormInstance | undefined) => {
 const resetForm = (formEl: FormInstance | undefined) => {
   if (!formEl) return;
   formEl.resetFields();
+};
+
+const Success = () => {
+  ElMessageBox.alert("Reset Password Successfully...!", "Reset Password", {
+    confirmButtonText: "OK",
+    callback: () => {
+      ElMessage({
+        type: "success",
+        message: `Successfully`,
+      });
+    },
+  });
+};
+const notSuccess = () => {
+  ElMessageBox.alert("Can not Reset Password...!", "Reset Password", {
+    confirmButtonText: "OK",
+    callback: () => {
+      ElMessage({
+        type: "info",
+        message: `Plz reset password again`,
+      });
+    },
+  });
 };
 </script>
 

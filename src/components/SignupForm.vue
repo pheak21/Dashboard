@@ -86,7 +86,7 @@
 import { ref, reactive } from "vue";
 import type { FormInstance } from "element-plus";
 import { ElMessage, ElMessageBox } from "element-plus";
-import type { Action } from "element-plus";
+// import type { Action } from "element-plus";
 
 const ruleForm3 = reactive({
   email: "",
@@ -94,26 +94,28 @@ const ruleForm3 = reactive({
   pass: "",
   checkPass: "",
 });
+const names = ref('');
+names.value = ruleForm3.name;
 
 const ruleFormRef3 = ref<FormInstance>();
 
-const validatePass5 = (rule: any, value: any, callback: any) => {
+const validatePass6 = (rule: any, value: any, callback: any) => {
   if (value === "") {
     callback(new Error("Please input the email"));
   } else {
     callback();
   }
 };
-const validatePass6 = (rule: any, value: any, callback: any) => {
+const validatePass7 = (rule: any, value: any, callback: any) => {
   if (value === "") {
     callback(new Error("Please input Fullname"));
-  } else if (value === "admin") {
+  } else if (value === names.value) {
     callback(new Error("This name use already!!"));
   } else {
     callback();
   }
 };
-const validatePass7 = (rule: any, value: any, callback: any) => {
+const validatePass8 = (rule: any, value: any, callback: any) => {
   if (value === "") {
     callback(new Error("Please input the password"));
   } else {
@@ -124,7 +126,7 @@ const validatePass7 = (rule: any, value: any, callback: any) => {
     callback();
   }
 };
-const validatePass8 = (rule: any, value: any, callback: any) => {
+const validatePass9 = (rule: any, value: any, callback: any) => {
   if (value === "") {
     callback(new Error("Please input the password again"));
   } else if (value !== ruleForm3.pass) {
@@ -135,10 +137,10 @@ const validatePass8 = (rule: any, value: any, callback: any) => {
 };
 
 const rules3 = reactive({
-  email: [{ validator: validatePass5, trigger: "blur" }],
-  name: [{ validator: validatePass6, trigger: "blur" }],
-  pass: [{ validator: validatePass7, trigger: "blur" }],
-  checkPass: [{ validator: validatePass8, trigger: "blur" }],
+  email: [{ validator: validatePass6, trigger: "blur" }],
+  name: [{ validator: validatePass7, trigger: "blur" }],
+  pass: [{ validator: validatePass8, trigger: "blur" }],
+  checkPass: [{ validator: validatePass9, trigger: "blur" }],
 });
 
 const signupForm = (formEl: FormInstance | undefined) => {
@@ -160,12 +162,12 @@ const resetForm = (formEl: FormInstance | undefined) => {
   formEl.resetFields();
 };
 const Success = () => {
-  ElMessageBox.alert("Sing up Successfully...!", "Sign Up", {
+  ElMessageBox.alert("Sign up Successfully...!", "Sign Up", {
     confirmButtonText: "OK",
-    callback: (action: Action) => {
+    callback: () => {
       ElMessage({
         type: "success",
-        message: `action: ${action}`,
+        message: `Successfully.`,
       });
     },
   });
@@ -173,10 +175,10 @@ const Success = () => {
 const notSuccess = () => {
   ElMessageBox.alert("Can not Sign up...!", "Sign Up", {
     confirmButtonText: "OK",
-    callback: (action: Action) => {
+    callback: () => {
       ElMessage({
         type: "info",
-        message: `action: ${action}`,
+        message: `Plz Sign Up again!`,
       });
     },
   });

@@ -25,14 +25,13 @@
       </div>
     </div>
   </section> -->
-  <HomeViews/>
+  <HomeView/>
 </template>
 
 <script lang="ts" setup>
 /* eslint-disable */
 import {RouterView, useRoute} from 'vue-router';
-import HomeViews from '../src/views/HomeView.vue';
-
+import HomeView from './views/HomeView.vue';
 const route = useRoute();
 
 </script>

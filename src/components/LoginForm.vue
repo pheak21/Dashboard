@@ -80,7 +80,7 @@
 import { ref, reactive } from "vue";
 import type { FormInstance } from "element-plus";
 import { ElMessage, ElMessageBox } from "element-plus";
-import type { Action } from "element-plus";
+// import type { Action } from "element-plus";
 
 const n = ref("");
 const ruleForm = ref({
@@ -102,7 +102,7 @@ const validatePass = (rule: any, value: any, callback: any) => {
 const validatePass2 = (rule: any, value: any, callback: any) => {
   if (value === "") {
     callback(new Error("Please input the email"));
-  } else if (value !== "admin@gmail.com") {
+  } else if (value !== "admin") {
     callback(new Error("Your email not correct!"));
   } else {
     callback();
@@ -118,6 +118,7 @@ const loginForm = (formEl: FormInstance | undefined) => {
   if (!formEl) return;
   formEl.validate((valid) => {
     if (valid) {
+      goto();
       console.log("submit!");
       n.value = 'homepage'
     } else {
@@ -132,13 +133,19 @@ const resetForm = (formEl: FormInstance | undefined) => {
   if (!formEl) return;
   formEl.resetFields();
 };
+const goto = () => {
+  ElMessage({
+        type: "success",
+        message: `Login.....`,
+      });
+};
 const open = () => {
-  ElMessageBox.alert("Can not Login page...!", "Login", {
+  ElMessageBox.alert("Can't Login page...!", "Login", {
     confirmButtonText: "OK",
-    callback: (action: Action) => {
+    callback: () => {
       ElMessage({
         type: "info",
-        message: `action: ${action}`,
+        message: `Plz Login again!`,
       });
     },
   });
