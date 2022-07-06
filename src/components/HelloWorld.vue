@@ -25,33 +25,37 @@
           />
           <Setting style="width: 1em; height: 1em; margin-right: 25px" />
           <Menu style="width: 1em; height: 1em; margin-right: 25px" />
-          <!-- <el-row style="width: 45px">
+          <el-row style="width: 45px">
             <div class="flex flex-wrap items-right">
               <el-dropdown trigger="click">
                 <el-button
+                  class="el-dropdown-link"
                   style="
                     font-size: 20px;
                     position: absolute;
                     top: -5px;
                     right: -30px;
-                    background: #D2691E
+                    background: #d2691e;
                   "
                   type="warning"
                   circle
-                  >S</el-button>
+                  >S</el-button
+                >
                 <template #dropdown>
                   <el-dropdown-menu>
-                    <el-dropdown-item style="border-bottom: 1px solid #e3e3e3">
-                      <el-button>
-                        <router-link :to="{ name: 'login'}">Logout</router-link>
-                        <el-icon style="margin-left:5px"><Right /></el-icon>
-                      </el-button>
+                    <el-dropdown-item>
+                      <router-link :to="{ name: 'loginform' }">
+                        <el-button>
+                          Logout
+                          <el-icon style="margin-left: 5px"><Right /></el-icon>
+                        </el-button>
+                      </router-link>
                     </el-dropdown-item>
                   </el-dropdown-menu>
                 </template>
               </el-dropdown>
             </div>
-          </el-row> -->
+          </el-row>
         </div>
       </el-header>
       <el-container>
@@ -72,7 +76,7 @@
                       width: 100px;
                       height: 50px;
                       border-radius: 80px;
-                      margin-left: 45px
+                      margin-left: 45px;
                     "
                   >
                     NEW<el-icon class="el-icon--right"><plus /></el-icon>
@@ -269,16 +273,14 @@
           >
             Quick Access
           </p>
+          <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             <div
-              class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
-            >
-            <div               
               v-for="(o, index) in 4"
               :key="o"
               :span="4"
-              :offset="index > 0 ? 2 : 0">
-
-              <el-card :body-style="{ padding: '5px' }" >
+              :offset="index > 0 ? 2 : 0"
+            >
+              <el-card :body-style="{ padding: '5px' }">
                 <img
                   src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
                   class="image"
@@ -291,7 +293,7 @@
                 </div>
               </el-card>
             </div>
-            </div>
+          </div>
           <div
             style="
               padding: 25px 0 10px 0;
@@ -307,18 +309,18 @@
             </p>
           </div>
           <div>
-            <div class="flex flex-row"> 
-              <el-button style=" padding: 10px" class="md:w-10 lg:w-28"
+            <div class="flex flex-row">
+              <el-button style="padding: 10px" class="md:w-10 lg:w-28"
                 ><el-icon class="el-icon--right" style="font-size: 18px"
                   ><Folder /></el-icon
                 >Default</el-button
               >
-              <el-button style=" padding: 10px" class="md:w-10 lg:w-28" 
+              <el-button style="padding: 10px" class="md:w-10 lg:w-28"
                 ><el-icon class="el-icon--right" style="font-size: 18px"
                   ><Folder /></el-icon
                 >Default</el-button
               >
-              <el-button style=" padding: 10px" class="md:w-10 lg:w-28"
+              <el-button style="padding: 10px" class="md:w-10 lg:w-28"
                 ><el-icon class="el-icon--right" style="font-size: 18px"
                   ><Folder /></el-icon
                 >Default</el-button
