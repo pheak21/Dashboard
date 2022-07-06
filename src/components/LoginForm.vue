@@ -1,78 +1,98 @@
 <template>
-  <div class="md:p-12 md:mx-6">
-    <div class="text-center">
-      <img
-        class="mx-auto w-44 mt-4 p-2"
-        src="	https://cdn.iconscout.com/icon/free/png-256/coffee-3089220-2642941.png"
-        alt="logo"
-      />
-      <h4 class="text-xl font-semibold mt-1 mb-12 pb-1">Login</h4>
-    </div>
-    <div>
-      <el-form
-        ref="ruleFormRef"
-        :model="ruleForm"
-        status-icon
-        :rules="rules"
-        class="demo-ruleForm"
+  <section class="h-full gradient-form bg-gray-200 md:h-screen">
+    <div class="container py-12 px-6 h-full">
+      <div
+        class="flex justify-center items-center flex-wrap h-full g-6 text-gray-800"
       >
-        <p class="mb-4">Please login to your account</p>
-        <div class="mb-4">
-          <el-form-item prop="email">
-            <el-input
-              v-model="ruleForm.email"
-              placeholder="Please input email"
-              autocomplete="off"
-            />
-          </el-form-item>
-        </div>
-        <div class="mb-4">
-          <el-form-item prop="password">
-            <el-input
-              v-model="ruleForm.password"
-              type="password"
-              placeholder="Please input password"
-              autocomplete="off"
-              show-password
-            />
-          </el-form-item>
-        </div>
-        <div class="flex justify-between text-center pt-1 mb-12 pb-1">
-          <div class="mb-4">
-            <el-form-item>
-              <router-link @click="loginForm(ruleFormRef)" :to="{name:n}">
-                <el-button type="primary" class="text-black"
-                  >Login</el-button
-                >
-              </router-link>
-              <el-button
-                @click="resetForm(ruleFormRef)"
-                size="default"
-                >Reset</el-button
-              >
-            </el-form-item>
-          </div>
+        <div class="xl:w-10/12">
+          <div class="block bg-white shadow-lg rounded-lg">
+            <div class="lg:flex lg:flex-wrap g-0">
+              <HomeView />
+              <div class="lg:w-6/12 px-4 md:px-0">
+                <div class="md:p-12 md:mx-6">
+                  <div class="text-center">
+                    <img
+                      class="mx-auto w-44 mt-4 p-2"
+                      src="	https://cdn.iconscout.com/icon/free/png-256/coffee-3089220-2642941.png"
+                      alt="logo"
+                    />
+                    <h4 class="text-xl font-semibold mt-1 mb-12 pb-1">Login</h4>
+                  </div>
+                  <div>
+                    <el-form
+                      ref="ruleFormRef"
+                      :model="ruleForm"
+                      status-icon
+                      :rules="rules"
+                      class="demo-ruleForm"
+                    >
+                      <p class="mb-4">Please login to your account</p>
+                      <div class="mb-4">
+                        <el-form-item prop="email">
+                          <el-input
+                            v-model="ruleForm.email"
+                            placeholder="Please input email"
+                            autocomplete="off"
+                          />
+                        </el-form-item>
+                      </div>
+                      <div class="mb-4">
+                        <el-form-item prop="password">
+                          <el-input
+                            v-model="ruleForm.password"
+                            type="password"
+                            placeholder="Please input password"
+                            autocomplete="off"
+                            show-password
+                          />
+                        </el-form-item>
+                      </div>
+                      <div
+                        class="flex justify-between text-center pt-1 mb-12 pb-1"
+                      >
+                        <div class="mb-4">
+                          <el-form-item>
+                            <el-button
+                              @click="loginForm(ruleFormRef)"
+                              type="primary"
+                              class="text-black"
+                              >Login</el-button
+                            >
+                            <el-button
+                              @click="resetForm(ruleFormRef)"
+                              size="default"
+                              >Reset</el-button
+                            >
+                          </el-form-item>
+                        </div>
 
-          <router-link
-            :to="{ name: 'resetpass' }"
-            class="mt-1 text-gray-600 hover:text-blue-600 hover:underline hover:cursor-pointer"
-            >Forgot password?
-          </router-link>
+                        <router-link
+                          :to="{ name: 'resetpass' }"
+                          class="mt-1 text-gray-600 hover:text-blue-600 hover:underline hover:cursor-pointer"
+                          >Forgot password?
+                        </router-link>
+                      </div>
+                      <div class="items-center">
+                        <label class="text-sm ml-4"
+                          >Don't have Acccount?
+                          <router-link
+                            :to="{ name: 'signup' }"
+                            class="text-sm text-blue-600 hover:underline hover:cursor-pointer"
+                          >
+                            Sign Up
+                          </router-link>
+                        </label>
+                      </div>
+                    </el-form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="items-center">
-          <label class="text-sm ml-4"
-            >Don't have Acccount?
-            <router-link
-              :to="{ name: 'signup' }"
-              class="text-sm text-blue-600 hover:underline hover:cursor-pointer"
-            >
-              Sign Up
-            </router-link>
-          </label>
-        </div>
-      </el-form>
+      </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script lang="ts" setup>
@@ -80,6 +100,8 @@
 import { ref, reactive } from "vue";
 import type { FormInstance } from "element-plus";
 import { ElMessage, ElMessageBox } from "element-plus";
+import HomeView from "@/views/HomeView.vue";
+import router from "@/router";
 // import type { Action } from "element-plus";
 
 const n = ref("");
@@ -120,7 +142,7 @@ const loginForm = (formEl: FormInstance | undefined) => {
     if (valid) {
       goto();
       console.log("submit!");
-      n.value = 'homepage'
+      router.push("/homepage");
     } else {
       open();
       console.log("error submit!");
@@ -135,9 +157,9 @@ const resetForm = (formEl: FormInstance | undefined) => {
 };
 const goto = () => {
   ElMessage({
-        type: "success",
-        message: `Login.....`,
-      });
+    type: "success",
+    message: `Login.....`,
+  });
 };
 const open = () => {
   ElMessageBox.alert("Can't Login page...!", "Login", {
@@ -152,5 +174,4 @@ const open = () => {
 };
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

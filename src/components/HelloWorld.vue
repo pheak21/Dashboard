@@ -10,7 +10,6 @@
           <Basketball style="width: 1em; height: 1em; font-size: 40px" />
           <p>Drive</p>
         </div>
-        <!-- <input v-model="input" placeholder="Search...." /> -->
         <el-input
           v-model="input"
           placeholder="Search......"
@@ -26,7 +25,7 @@
           />
           <Setting style="width: 1em; height: 1em; margin-right: 25px" />
           <Menu style="width: 1em; height: 1em; margin-right: 25px" />
-          <el-row style="width: 45px">
+          <!-- <el-row style="width: 45px">
             <div class="flex flex-wrap items-right">
               <el-dropdown trigger="click">
                 <el-button
@@ -52,7 +51,7 @@
                 </template>
               </el-dropdown>
             </div>
-          </el-row>
+          </el-row> -->
         </div>
       </el-header>
       <el-container>
@@ -197,16 +196,6 @@
           </el-col>
         </el-aside>
         <el-main>
-          <!-- <el-select-v2 v-model="value" :options="options"
-            placeholder="Please select" style="width: 240px"
-            multiple /> -->
-          <!-- <div class="example-block" style="display: flex">
-            <el-cascader
-              v-model="value"
-              :options="options"
-              @change="handleChange"
-            />
-          </div> -->
           <div
             style="
               height: 30px;
@@ -280,7 +269,6 @@
           >
             Quick Access
           </p>
-          <!-- <el-row > -->
             <div
               class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
             >
@@ -299,13 +287,11 @@
                   <span>Yummy hamburger</span>
                   <div class="bottom">
                     <time class="time">{{ currentDate }}</time>
-                    <!-- <el-button text class="button">Operating</el-button> -->
                   </div>
                 </div>
               </el-card>
             </div>
             </div>
-          <!-- </el-row> -->
           <div
             style="
               padding: 25px 0 10px 0;
@@ -322,17 +308,17 @@
           </div>
           <div>
             <div class="flex flex-row"> 
-              <el-button style=" padding: 10px" class="md:w-10"
+              <el-button style=" padding: 10px" class="md:w-10 lg:w-28"
                 ><el-icon class="el-icon--right" style="font-size: 18px"
                   ><Folder /></el-icon
                 >Default</el-button
               >
-              <el-button style=" padding: 10px" class="md:w-10"
+              <el-button style=" padding: 10px" class="md:w-10 lg:w-28" 
                 ><el-icon class="el-icon--right" style="font-size: 18px"
                   ><Folder /></el-icon
                 >Default</el-button
               >
-              <el-button style=" padding: 10px" class="md:w-10"
+              <el-button style=" padding: 10px" class="md:w-10 lg:w-28"
                 ><el-icon class="el-icon--right" style="font-size: 18px"
                   ><Folder /></el-icon
                 >Default</el-button
@@ -397,7 +383,6 @@ export default defineComponent({
 });
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .header {
   display: flex;

@@ -1,84 +1,106 @@
 <template>
-  <div class="signupform md:p-12 md:mx-6">
-    <div class="text-center">
-      <img
-        class="mx-auto w-44 mt-4 p-2"
-        src="	https://cdn.iconscout.com/icon/free/png-256/coffee-3089220-2642941.png"
-        alt="logo"
-      />
-      <h4 class="text-xl font-semibold mt-1 mb-12 pb-1">Sign Up</h4>
-    </div>
-    <div>
-      <el-form
-        ref="ruleFormRef3"
-        :model="ruleForm3"
-        status-icon
-        :rules="rules3"
-        class="demo-ruleForm"
+  <section class="h-full gradient-form bg-gray-200 md:h-screen">
+    <div class="container py-12 px-6 h-full">
+      <div
+        class="flex justify-center items-center flex-wrap h-full g-6 text-gray-800"
       >
-        <p class="mb-4">Create your new account</p>
-        <div class="mb-4">
-          <el-form-item prop="email">
-            <el-input
-              v-model="ruleForm3.email"
-              placeholder="Please input email"
-              autocomplete="off"
-            />
-          </el-form-item>
+        <div class="xl:w-10/12">
+          <div class="block bg-white shadow-lg rounded-lg">
+            <div class="lg:flex lg:flex-wrap g-0">
+              <HomeView/>
+              <div class="lg:w-6/12 px-4 md:px-0">
+                <div class="signupform md:p-12 md:mx-6">
+                  <div class="text-center">
+                    <img
+                      class="mx-auto w-44 mt-4 p-2"
+                      src="	https://cdn.iconscout.com/icon/free/png-256/coffee-3089220-2642941.png"
+                      alt="logo"
+                    />
+                    <h4 class="text-xl font-semibold mt-1 mb-12 pb-1">
+                      Sign Up
+                    </h4>
+                  </div>
+                  <div>
+                    <el-form
+                      ref="ruleFormRef3"
+                      :model="ruleForm3"
+                      status-icon
+                      :rules="rules3"
+                      class="demo-ruleForm"
+                    >
+                      <p class="mb-4">Create your new account</p>
+                      <div class="mb-4">
+                        <el-form-item prop="email">
+                          <el-input
+                            v-model="ruleForm3.email"
+                            placeholder="Please input email"
+                            autocomplete="off"
+                          />
+                        </el-form-item>
+                      </div>
+                      <div class="mb-4">
+                        <el-form-item prop="name">
+                          <el-input
+                            v-model="ruleForm3.name"
+                            placeholder="Please input fullname"
+                            autocomplete="off"
+                          />
+                        </el-form-item>
+                      </div>
+                      <div class="mb-4">
+                        <el-form-item prop="pass">
+                          <el-input
+                            v-model="ruleForm3.pass"
+                            type="password"
+                            placeholder="input new password"
+                            autocomplete="off"
+                          />
+                        </el-form-item>
+                      </div>
+                      <div class="mb-4">
+                        <el-form-item prop="checkPass">
+                          <el-input
+                            v-model="ruleForm3.checkPass"
+                            type="password"
+                            placeholder="input password again"
+                            autocomplete="off"
+                          />
+                        </el-form-item>
+                      </div>
+                      <div class="mb-4">
+                        <el-form-item>
+                          <el-button
+                            type="primary"
+                            @click="signupForm(ruleFormRef3)"
+                            class="text-black"
+                            >Sign Up</el-button
+                          >
+                          <el-button @click="resetForm(ruleFormRef3)"
+                            >Reset</el-button
+                          >
+                        </el-form-item>
+                      </div>
+                      <div class="items-center">
+                        <label class="text-sm ml-4"
+                          >Don't have Acccount?
+                          <router-link
+                            :to="{ name: 'loginform' }"
+                            class="text-sm text-blue-600 hover:underline hover:cursor-pointer"
+                          >
+                            Sign In
+                          </router-link>
+                        </label>
+                      </div>
+                    </el-form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="mb-4">
-          <el-form-item prop="name">
-            <el-input
-              v-model="ruleForm3.name"
-              placeholder="Please input fullname"
-              autocomplete="off"
-            />
-          </el-form-item>
-        </div>
-        <div class="mb-4">
-          <el-form-item prop="pass">
-            <el-input
-              v-model="ruleForm3.pass"
-              type="password"
-              placeholder="input new password"
-              autocomplete="off"
-            />
-          </el-form-item>
-        </div>
-        <div class="mb-4">
-          <el-form-item prop="checkPass">
-            <el-input
-              v-model="ruleForm3.checkPass"
-              type="password"
-              placeholder="input password again"
-              autocomplete="off"
-            />
-          </el-form-item>
-        </div>
-        <div class="mb-4">
-          <el-form-item>
-            <el-button
-              type="primary"
-              @click="signupForm(ruleFormRef3)"
-              class="text-black"
-              >Sign Up</el-button
-            >
-            <el-button @click="resetForm(ruleFormRef3)">Reset</el-button>
-          </el-form-item>
-        </div>
-        <div class="items-center">
-          <label class="text-sm ml-4"
-            >Don't have Acccount?
-            <router-link :to="{ name: 'loginform' }"
-              class="text-sm text-blue-600 hover:underline hover:cursor-pointer"
-            >
-              Sign In
-            </router-link>
-          </label>
-        </div>
-      </el-form>
+      </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script lang="ts" setup>
@@ -86,6 +108,7 @@
 import { ref, reactive } from "vue";
 import type { FormInstance } from "element-plus";
 import { ElMessage, ElMessageBox } from "element-plus";
+import HomeView from "@/views/HomeView.vue";
 // import type { Action } from "element-plus";
 
 const ruleForm3 = reactive({
@@ -94,7 +117,7 @@ const ruleForm3 = reactive({
   pass: "",
   checkPass: "",
 });
-const names = ref('');
+const names = ref("");
 names.value = ruleForm3.name;
 
 const ruleFormRef3 = ref<FormInstance>();

@@ -25,7 +25,8 @@
       </div>
     </div>
   </section> -->
-  <HomeView/>
+  <!-- <HomeView/> -->
+  <router-view/>
 </template>
 
 <script lang="ts" setup>

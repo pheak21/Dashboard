@@ -1,72 +1,95 @@
 <template>
-  <div class="resetpass md:p-12 md:mx-6">
-    <div class="text-center">
-      <img
-        class="mx-auto w-44 mt-4 p-2"
-        src="	https://cdn.iconscout.com/icon/free/png-256/coffee-3089220-2642941.png"
-        alt="logo"
-      />
-      <h4 class="text-xl font-semibold mt-1 mb-12 pb-1">Reset Password</h4>
-    </div>
-    <div>
-      <el-form
-        ref="ruleFormRef2"
-        :model="ruleForm2"
-        status-icon
-        :rules="rules"
-        class="demo-ruleForm"
+  <section class="h-full gradient-form bg-gray-200 md:h-screen">
+    <div class="container py-12 px-6 h-full">
+      <div
+        class="flex justify-center items-center flex-wrap h-full g-6 text-gray-800"
       >
-        <p class="mb-4">Please your new password</p>
-        <div class="mb-4">
-          <el-form-item prop="email">
-            <el-input
-              v-model="ruleForm2.email"
-              placeholder="Please input email"
-              autocomplete="off"
-            />
-          </el-form-item>
-        </div>
-        <div class="mb-4">
-          <el-form-item prop="pass">
-            <el-input
-              v-model="ruleForm2.pass"
-              type="password"
-              placeholder="Input new password"
-              autocomplete="off"
-              show-password
-            />
-          </el-form-item>
-        </div>
-        <div class="mb-4">
-          <el-form-item prop="checkPass">
-            <el-input
-              v-model="ruleForm2.checkPass"
-              type="password"
-              placeholder="Input password again"
-              autocomplete="off"
-              show-password
-            />
-          </el-form-item>
-        </div>
-        <div class="flex justify-between text-center pt-1 mb-12 pb-1">
-          <div class="mb-4">
-            <el-form-item>
-              <el-button
-                type="primary"
-                @click="submitForm(ruleFormRef2)"
-                class="text-black"
-                >Submit</el-button
-              >
-              <el-button @click="resetForm(ruleFormRef2)">Reset</el-button>
-            </el-form-item>
+        <div class="xl:w-10/12">
+          <div class="block bg-white shadow-lg rounded-lg">
+            <div class="lg:flex lg:flex-wrap g-0">
+              <HomeView/>
+              <div class="lg:w-6/12 px-4 md:px-0">
+                <div class="resetpass md:p-12 md:mx-6">
+                  <div class="text-center">
+                    <img
+                      class="mx-auto w-44 mt-4 p-2"
+                      src="	https://cdn.iconscout.com/icon/free/png-256/coffee-3089220-2642941.png"
+                      alt="logo"
+                    />
+                    <h4 class="text-xl font-semibold mt-1 mb-12 pb-1">
+                      Reset Password
+                    </h4>
+                  </div>
+                  <div>
+                    <el-form
+                      ref="ruleFormRef2"
+                      :model="ruleForm2"
+                      status-icon
+                      :rules="rules"
+                      class="demo-ruleForm"
+                    >
+                      <p class="mb-4">Please your new password</p>
+                      <div class="mb-4">
+                        <el-form-item prop="email">
+                          <el-input
+                            v-model="ruleForm2.email"
+                            placeholder="Please input email"
+                            autocomplete="off"
+                          />
+                        </el-form-item>
+                      </div>
+                      <div class="mb-4">
+                        <el-form-item prop="pass">
+                          <el-input
+                            v-model="ruleForm2.pass"
+                            type="password"
+                            placeholder="Input new password"
+                            autocomplete="off"
+                            show-password
+                          />
+                        </el-form-item>
+                      </div>
+                      <div class="mb-4">
+                        <el-form-item prop="checkPass">
+                          <el-input
+                            v-model="ruleForm2.checkPass"
+                            type="password"
+                            placeholder="Input password again"
+                            autocomplete="off"
+                            show-password
+                          />
+                        </el-form-item>
+                      </div>
+                      <div
+                        class="flex justify-between text-center pt-1 mb-12 pb-1"
+                      >
+                        <div class="mb-4">
+                          <el-form-item>
+                            <el-button
+                              type="primary"
+                              @click="submitForm(ruleFormRef2)"
+                              class="text-black"
+                              >Submit</el-button
+                            >
+                            <el-button @click="resetForm(ruleFormRef2)"
+                              >Reset</el-button
+                            >
+                          </el-form-item>
+                        </div>
+                        <router-link :to="{ name: 'loginform' }">
+                          <el-button>Back</el-button>
+                        </router-link>
+                      </div>
+                    </el-form>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <router-link :to="{ name: 'loginform' }">
-            <el-button>Back</el-button>
-          </router-link>
         </div>
-      </el-form>
+      </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script lang="ts" setup>
@@ -74,14 +97,14 @@
 import { reactive, ref } from "vue";
 import type { FormInstance } from "element-plus";
 import { ElMessage, ElMessageBox } from "element-plus";
+import HomeView from "@/views/HomeView.vue";
 
 const ruleFormRef2 = ref<FormInstance>();
 
 const validatePass3 = (rule: any, value: any, callback: any) => {
   if (value === "") {
     callback(new Error("Please input the email"));
-  } 
-  else if (value !== "admin") {
+  } else if (value !== "admin") {
     callback(new Error("Email is not correct!"));
   } else {
     callback();
