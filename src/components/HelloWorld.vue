@@ -280,7 +280,7 @@
               :span="4"
               :offset="index > 0 ? 2 : 0"
             >
-              <el-card :body-style="{ padding: '5px' }">
+              <el-card :body-style="{ padding: '5px' }" shadow="never">
                 <img
                   src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
                   class="image"
@@ -310,17 +310,17 @@
           </div>
           <div>
             <div class="flex flex-row">
-              <el-button style="padding: 10px" class="md:w-10 lg:w-28"
+              <el-button style="padding: 10px" class="md:w-28"
                 ><el-icon class="el-icon--right" style="font-size: 18px"
                   ><Folder /></el-icon
                 >Default</el-button
               >
-              <el-button style="padding: 10px" class="md:w-10 lg:w-28"
+              <el-button style="padding: 10px" class="md:w-28"
                 ><el-icon class="el-icon--right" style="font-size: 18px"
                   ><Folder /></el-icon
                 >Default</el-button
               >
-              <el-button style="padding: 10px" class="md:w-10 lg:w-28"
+              <el-button style="padding: 10px" class="md:w-28"
                 ><el-icon class="el-icon--right" style="font-size: 18px"
                   ><Folder /></el-icon
                 >Default</el-button
