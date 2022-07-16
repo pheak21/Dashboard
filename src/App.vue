@@ -1,38 +1,13 @@
 <template>
-  <!-- <section class="h-full gradient-form bg-gray-200 md:h-screen">
-    <div class="container py-12 px-6 h-full">
-      <div
-        class="
-          flex
-          justify-center
-          items-center
-          flex-wrap
-          h-full
-          g-6
-          text-gray-800
-        "
-      >
-        <div class="xl:w-10/12">
-          <div class="block bg-white shadow-lg rounded-lg">
-            <div class="lg:flex lg:flex-wrap g-0">
-              <HomeViews/>
-              <div class="lg:w-6/12 px-4 md:px-0">
-                <router-view/>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section> -->
-  <!-- <HomeView/> -->
   <router-view/>
+  <!-- <CompanyStructureVue/> -->
 </template>
 
 <script lang="ts" setup>
 /* eslint-disable */
 import {RouterView, useRoute} from 'vue-router';
-import HomeView from './views/HomeView.vue';
+import CompanyStructureVue from './components/CompanyStructure.vue';
+import TestView from './views/testView.vue';
 const route = useRoute();
 
 </script>

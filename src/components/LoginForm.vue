@@ -1,6 +1,6 @@
 <template>
   <section class="h-full gradient-form bg-gray-200 md:h-screen">
-    <div class="container py-12 px-6 h-full">
+    <div class="container mx-auto py-12 px-6 h-full">
       <div
         class="flex justify-center items-center flex-wrap h-full g-6 text-gray-800"
       >
@@ -102,7 +102,6 @@ import type { FormInstance } from "element-plus";
 import { ElMessage, ElMessageBox } from "element-plus";
 import HomeView from "@/views/HomeView.vue";
 import router from "@/router";
-// import type { Action } from "element-plus";
 
 const n = ref("");
 const ruleForm = ref({
